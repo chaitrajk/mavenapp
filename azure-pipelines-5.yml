@@ -1,0 +1,17 @@
+# Starter pipeline for Maven project
+
+trigger:
+- master
+
+pool:
+  name: Default  # your self-hosted agent pool
+
+steps:
+- script: echo My first Azure Pipeline for maven project
+  displayName: 'Run a one-line script'
+
+- script: mvn clean install
+  displayName: 'Build with maven'
+
+- script: java -jar target/SimpleMavenApp-1.0-SNAPSHOT.jar
+  displayName: 'Running jar'
